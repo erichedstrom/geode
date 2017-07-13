@@ -90,7 +90,8 @@ Geode.prototype.request = function (collection, data, callback) {
 
   request.get({
     url: url,
-    qs: payload
+    qs: payload,
+    qsStringifyOptions: { arrayFormat: 'repeat' }
   }, function (err, res, body) {
     if (err) {
       self.error(err, callback)
@@ -118,6 +119,7 @@ Geode.METHODS = [
   'get',
   'postalCode',
   'postalCodeLookup',
+  'postalCodeSearch',
   'findNearbyPostalCodes',
   'postalCodeCountryInfo',
   'findNearbyPlaceName',
